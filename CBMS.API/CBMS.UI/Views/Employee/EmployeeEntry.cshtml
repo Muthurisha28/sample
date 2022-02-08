@@ -1,0 +1,40 @@
+﻿@model CBMS.Entity.Model.Employee
+
+@{
+    ViewData["Title"] = "EmployeeEntry";
+}
+
+ <div class="h2">
+    EMPLOYEE ENTRY
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EmployeeEntry">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="empName" class="control-label"></label>
+                <input asp-for="empName" class="form-control" />
+                <span asp-validation-for="empName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empType" class="control-label"></label>
+                <input asp-for="empType" class="form-control" />
+                <span asp-validation-for="empType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Employee" asp-action="Employee">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

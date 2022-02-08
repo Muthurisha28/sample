@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CBMS.Entity.Model.BusStop
+
+@{
+    ViewData["Title"] = "AddBusStop";
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="h2">
+        BUS STOP ENTRY
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddBusStop">
+
+                <div class="form-group">
+
+
+                </div>
+                <div class="form-group">
+                    <label asp-for=" stopName" class="control-label"></label>
+                    <input asp-for=" stopName" class="form-control" />
+                    <span asp-validation-for=" stopName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="arrivalTime" class="control-label"></label>
+                    <input asp-for="arrivalTime" class="form-control" />
+                    <span asp-validation-for="arrivalTime" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="depatureTime" class="control-label"></label>
+                    <input asp-for="depatureTime" class="form-control" />
+                    <span asp-validation-for="depatureTime" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+</form>
+<div>
+    <a asp-controller="BusStop" asp-action="BusStopList">Back to List</a>
+</div>
+
